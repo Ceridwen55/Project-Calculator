@@ -74,9 +74,55 @@ function substract ()
 }
 minus.addEventListener('click', substract);
 
+let x = document.getElementById("8");
+function multiply()
+{
 
+    operator = '*';
+}
+x.addEventListener('click', multiply);
 
+let div = document.getElementById("4");
+function divide ()
+{
+    operator = '/';
+}
+div.addEventListener('click', divide);
 
+let rem = document.getElementById("3");
+function remainder ()
+{
+    operator = '%';
+}
+rem.addEventListener('click', remainder);
+
+let zero = document.getElementById("1");
+function reset ()
+{
+    operator = 'AC';
+    parseInt(calculateResult(0));
+    print(0);
+}
+zero.addEventListener('click', reset);
+
+let change =document.getElementById("2");
+function mirror ()
+{
+    operator = '+/-'
+    if (firstNumber !== null)
+    {
+        firstNumber = -firstNumber;
+        print(firstNumber);
+    }
+    if (secondNumber !== null)
+    {
+        secondNumber = -secondNumber;
+        print(secondNumber);
+    }
+    
+    
+}
+change.addEventListener('click',mirror);
 
 
 
@@ -95,6 +141,22 @@ function calculateResult ()
     {
         result = parseInt(firstNumber) - parseInt(secondNumber);
     }
+    if (operator ==='*')
+    {
+        result = parseInt(firstNumber) * parseInt(secondNumber)
+    }
+    if (operator === '/')
+    {
+        result= parseInt(firstNumber) / parseInt(secondNumber);
+    }
+    if (operator === '%')
+    {
+        result = parseInt(firstNumber) % parseInt(secondNumber);
+    }
+     if ( operator === null )
+    {
+        result = firstNumber;
+    }
     
     print(result);
     
@@ -110,13 +172,7 @@ function calculateResult ()
 
 
 
-/* let minus = document.getElementById("12");
-let multiply = document.getElementById("8");
-let divide = document.getElementById("4");
-let remainder = document.getElementById("3");
-let plusminus = document.getElementById("2");
-let AC = document.getElementById("1");
-let comma = document.getElementById("18"); */
+
 
 
 
