@@ -1,7 +1,9 @@
 
-let firstNumber = null;
+let firstNumber = "";
 let secondNumber = null;
 let operator = null;
+let maxlimit = 15;
+let clickCount = 0
 
 //DISPLAY
 const display = document.querySelector(".display");
@@ -9,12 +11,13 @@ display.style.display = "flex";
 display.style.justifyContent = "flex-end";
 display.style.alignItems = "center";
 display.style.flexWrap = "wrap";
-display.style.width = "200px";
+display.style.width = "180px";
 display.style.height = "50px";
 display.style.fontWeight = "bold";
 display.style.border = "solid";
 display.style.backgroundColor = "#4CAF50";
 display.style.fontSize = "21px";
+display.style.borderRadius = "20px";
 display.textContent = 0;
 function print (value)
 {
@@ -32,23 +35,26 @@ let input =
 ];
 
 function handleClick (event) // TO TRANSFER THE VALUE FROM OBJECT TO BUTTON AND STORING DATA 
-{   
+{   clickCount++;
     let buttonValue = event.target.dataset.value;
     
     if ( operator == null)
     {
         firstNumber = (firstNumber !== null) ? firstNumber + buttonValue : buttonValue;
+       
         return print(firstNumber);
     }
-    else
+    else 
     {
         secondNumber = (secondNumber !== null) ? secondNumber + buttonValue : buttonValue;
+        
         return print(secondNumber);
 
     }
-    
+     
     
 }
+
 
 
 
@@ -71,6 +77,7 @@ equal.style.display = "flex";
 equal.style.height = "50px";
 equal.style.width = "50px";
 equal.style.border = "solid";
+equal.style.borderRadius = "10px";
 
 let plus = document.getElementById("16");
 function add ()
@@ -82,6 +89,7 @@ plus.style.display = "flex";
 plus.style.height = "50px";
 plus.style.width = "50px";
 plus.style.border = "solid";
+plus.style.borderRadius = "10px";
 
 let minus = document.getElementById("12");
 function substract ()
@@ -93,6 +101,7 @@ minus.style.display = "flex";
 minus.style.height = "50px";
 minus.style.width = "50px";
 minus.style.border = "solid";
+minus.style.borderRadius = "10px";
 
 let x = document.getElementById("8");
 function multiply()
@@ -110,6 +119,7 @@ x.style.alignItems = "center";
 x.style.fontStyle = "normal";
 x.style.fontSize = "16px";
 x.style.border = "solid";
+x.style.borderRadius = "10px";
 
 let div = document.getElementById("4");
 function divide ()
@@ -126,6 +136,7 @@ div.style.alignItems = "center";
 div.style.fontStyle = "normal";
 div.style.fontSize = "16px";
 div.style.border = "solid";
+div.style.borderRadius = "10px";
 
 let rem = document.getElementById("3");
 function remainder ()
@@ -142,6 +153,7 @@ rem.style.alignItems = "center";
 rem.style.fontStyle = "normal";
 rem.style.fontSize = "16px";
 rem.style.border = "solid";
+rem.style.borderRadius = "10px";
 
 let zero = document.getElementById("1");
 function reset ()
@@ -160,6 +172,7 @@ zero.style.alignItems = "center";
 zero.style.fontStyle = "normal";
 zero.style.fontSize = "16px";
 zero.style.border = "solid";
+zero.style.borderRadius = "10px";
 
 let change = document.getElementById("2");
 function mirror ()
@@ -187,6 +200,7 @@ change.style.alignItems = "center";
 change.style.fontStyle = "normal";
 change.style.fontSize = "16px";
 change.style.border = "solid";
+change.style.borderRadius = "10px";
 
 let comma = document.getElementById("18");
 function decimal ()
@@ -219,6 +233,7 @@ comma.style.alignItems = "center";
 comma.style.fontStyle = "normal";
 comma.style.fontSize = "16px";
 comma.style.border = "solid";
+comma.style.borderRadius = "10px";
 
 
 
@@ -228,6 +243,7 @@ function calculateResult ()
     let result = 0;
     let num1 = parseFloat(firstNumber);
     let num2  = parseFloat(secondNumber);
+    
     if ( operator === '+')
     {
     
@@ -254,8 +270,15 @@ function calculateResult ()
     {
         result = num1;
     }
+
+    const maxlength = 15;
+    let resultString = result.toString();
+    if (resultString.length > maxlength) {
+        resultString = result.toExponential(2);
+    }
+
     
-    print(result);
+    print(resultString);
     
     firstNumber = result;
     secondNumber= null;
@@ -269,6 +292,9 @@ let rex = document.querySelector(".king");
 rex.style.display = "flex";
 rex.style.justifyContent = "center";
 rex.style.alignItems = "center";
+rex.style.paddingBottom = "280px";
+rex.style.backgroundColor = "#6D6E71"
+rex.style.boxShadow = "inset 30px 15px 30px rgba(0, 0, 0, 0.5)";
 
 
 let maiden = document.querySelector(".queen");
@@ -281,6 +307,8 @@ maiden.style.marginLeft = "50px";
 maiden.style.height = "200x";
 maiden.style.width = "200px";
 maiden.style.border = "solid";
+maiden.style.boxShadow = "20px 24px 20px rgba(0, 0, 0, 0.5)";
+maiden.style.borderRadius = "20px";
 
 let firstr = document.querySelector(".firstrow");
 firstr.style.display = "flex";
@@ -325,14 +353,26 @@ input.forEach(item =>
         item.but.style.fontStyle = "oblique";
         item.but.style. fontSize = "14px";
         item.but.style.border = "solid";
+        item.but.style.borderRadius = "10px";
         input[0].but.style.width = "105px";
     
 });
 
 
+let title = document.querySelector(".title");
+title.style.fontSize = "35px";
+title.style.color = "ivory";
+title.style.fontStyle = "oblique";
+title.style.fontWeight = "bolder";
+title.style.fontFamily = "'Digital-7', sans-serif";
+title.style.marginTop = "150px";
+title.style.textShadow = "5px 5px 5px rgba(0, 0, 0, 0.5)";
+title.style.gap = "30px";
 
-
-
+let sign = document.querySelector(".sign");
+sign.style.fontSize = "25px";
+sign.style.color = "#F08080";
+sign.style.textShadow ="inner 5px 5px 5px rgba(0, 0, 0, 0.5)" 
 
 
 
